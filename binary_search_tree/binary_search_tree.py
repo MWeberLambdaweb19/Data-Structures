@@ -60,10 +60,17 @@ class BinarySearchTree:
 
     # Return the maximum value found in the tree
     def get_max(self):
+        ## recursive version
+        # if not self.right:
+        #     return self.value
+        # else:
+        #     return self.right.get_max()
+
+        # iteration version
         max_value = self.value
         current_value = self
         while current_value:
-            if current_value > max_value:
+            if current_value.value > max_value:
                 max_value = current_value.value
             current_value = current_value.right
         return max_value
@@ -84,7 +91,12 @@ class BinarySearchTree:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        print(self.value)
+        if self.left:
+            self.left.in_order_print(node)
+        if self.right:
+            self.right.in_order_print(node)
+        
 
     # QUEUE
     # Print the value of every node, starting with the given node,
